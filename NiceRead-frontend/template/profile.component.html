@@ -1,0 +1,21 @@
+<h2> User Profile </h2>
+<div *ngIf="logged">
+    <h2>
+        {{user.Username | uppercase}} welcome! Your name is  
+        {{user.Fullname}} 
+    </h2>
+    <button (click)="toReg()">Edit Data</button><button (click)="logout()">Logout</button>
+</div>
+<div *ngIf="logged == false">
+    No account? <button (click)="toReg()">Register</button> <br>
+    <div>
+        <label>Username: </label>
+        <input [(ngModel)]="user.Username" placeholder="username">
+    </div>
+    <div>
+        <label>Password: </label>
+        <input type="password" [(ngModel)]="user.Password" placeholder="*****">
+    </div>
+    <button (click)="login()">Login</button>
+    <button (click)="goBack()">Back</button>
+</div>

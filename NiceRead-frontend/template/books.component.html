@@ -1,0 +1,18 @@
+<h2>Books to read</h2>
+<button (click)="createBook()">Add a book to your list</button>
+<ul class="books">
+	<li *ngFor="let book of books"
+	[class.selected]="book === selectedBook"
+	(click)="onSelect(book)">
+		<span class="badge">{{book.Id}}</span> {{book.Title}}
+	</li>
+</ul>
+<div *ngIf="selectedBook">
+    <h2>
+        {{selectedBook.Title | uppercase}} - 
+        {{selectedBook.Price}} - 
+        {{selectedBook.Description | slice:0:20}} 
+        <span *ngIf="selectedBook.Description.length > 20">...</span>
+    </h2>
+	<button (click)="gotoDetail(selectedBook)">View Details</button>
+</div>

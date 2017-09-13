@@ -1,0 +1,26 @@
+<div>
+    <h2>Add a new book!</h2>
+    	<label>Title: </label>
+    	<input [(ngModel)]="book.Title" placeholder="title">
+    </div>
+    <div>
+    	<label>Author: </label>
+    	<input [(ngModel)]="book.Author" placeholder="author">
+    </div>
+    <div>
+    	<label>Image link: </label>
+    	<input [(ngModel)]="book.Image" placeholder="image url">
+    </div>
+    <div>
+    	<label>Tags: </label>
+        <div>
+            <span *ngFor="let tag of tags">
+                <input type="checkbox" [class.selected]="book.Tags.indexOf(tag) > -1" 
+                   (click)="onChange(tag)" />
+                {{ tag.Name }}<br/> 
+            </span>
+        </div>
+    	
+        </div>
+    <button (click)="save()">Save</button>
+    <button (click)="goBack()">Back</button>

@@ -1,0 +1,12 @@
+<h3>
+    <span *ngIf="user">{{user.Username}}, these are your books </span> 
+    <span *ngIf="user == null">What do you want to read?</span>
+</h3>
+<div class="grid grid-pad">
+	<div *ngFor="let book of books" (click)="gotoDetail(book)" class="col-1-4">
+		<div class="module book">
+			<h4>{{book.Title}}</h4>
+		</div>
+	</div>
+</div>
+<span *ngIf="user"><button (click)="checkout()">Checkout</button></span> 

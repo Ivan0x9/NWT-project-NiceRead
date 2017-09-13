@@ -1,0 +1,14 @@
+<h2>My Tags</h2>
+<button (click)="createTag()">Add a new tag!</button>
+<ul class="products">
+	<li *ngFor="let tag of tags"
+	[class.selected]="tag === selectedTag"
+	(click)="onSelect(tag)">
+		<span class="badge">{{tag.Id}}</span> {{tag.Name}}
+	</li>
+</ul>
+<div *ngIf="selectedTag">
+    <h2>
+        {{selectedTag.Name | uppercase}} - <button (click)="deleteTag()">Delete</button>
+    </h2>
+</div>
